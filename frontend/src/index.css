@@ -1,0 +1,179 @@
+body {
+  margin: 0;
+  background-color: #0f172a;
+  color: #f8fafc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* Barra superior */
+.bar-super {
+  background-color: #1e293b;
+  border-bottom: 1px solid #334155;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bar-super h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #22c55e;
+  border-radius: 50%;
+}
+
+/* Cuerpo principal con sidebar */
+.main-container {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #1e293b;
+  border-right: 1px solid #334155;
+  padding: 1.5rem 1rem;
+}
+
+.sidebar nav a {
+  display: block;
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.sidebar nav a:hover, .sidebar nav a.active {
+  background-color: #334155;
+  color: #ffffff;
+}
+
+.content-area {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Tarjetas */
+.card {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* Notificación */
+.notification-card {
+  background-color: rgba(120, 53, 15, 0.3);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #fde68a;
+}
+
+/* Panel de estados */
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.status-btn {
+  background-color: #334155;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.status-btn:hover {
+  opacity: 0.85;
+}
+
+.btn-disponible { background-color: #059669; }
+.btn-break { background-color: #d97706; }
+.btn-almuerzo { background-color: #2563eb; }
+.btn-capacitacion { background-color: #7c3aed; }
+.btn-backoffice { background-color: #475569; }
+
+/* Temporizador */
+.timer-display {
+  font-size: 3rem;
+  font-family: monospace;
+  font-weight: bold;
+  text-align: center;
+  color: #f59e0b;
+  margin: 1rem 0;
+}
+
+.timer-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn-action {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-action:hover {
+  background-color: #4338ca;
+}
+
+.btn-secondary {
+  background-color: #475569;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-secondary:hover {
+  background-color: #334155;
+}

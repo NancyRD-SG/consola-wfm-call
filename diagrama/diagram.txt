@@ -1,0 +1,58 @@
+Table usuarios {
+  id integer [pk, increment]
+  nombre varchar [not null]
+  correo varchar [not null, unique]
+  rol varchar [not null, note: 'AGENTE o SUPERVISOR']
+  canal varchar [note: 'LLAMADA, CHAT o CORREO']
+  supervisor_id integer [ref: > usuarios.id]
+  clave varchar [note: 'contraseña cifrada']
+}
+
+Table horarios {
+  id integer [pk, increment]
+  usuario_id integer [not null, ref: > usuarios.id]
+  dia_semana integer [not null, note: '0=domingo ... 6=sábado']
+  tipo varchar [not null]
+  hora_inicio varchar [not null]
+  hora_fin varchar [not null]
+}
+
+Table casos {
+  id integer [pk, increment]
+  numero_caso varchar [not null, unique]
+  usuario_id integer [not null, ref: > usuarios.id]
+  canal varchar [not null]
+  cliente_nombre varchar
+  estado varchar [not null]
+  fecha_creacion datetime
+  inicio_atencion datetime
+  fecha_cierre datetime
+}
+
+Table encuestas {
+  id integer [pk, increment]
+  caso_id integer [not null, unique, ref: - casos.id]
+  tipo varchar [not null]
+  calificacion integer
+  comentario varchar
+  fecha datetime
+}
+
+Table historial_estados {
+  id integer [pk, increment]
+  usuario_id integer [not null, ref: > usuarios.id]
+  estado varchar [not null]
+  inicio datetime [not null]
+  fin datetime
+  duracion_seg integer
+  horario_id integer [ref: > horarios.id]
+  desfase_min integer
+  cumplido integer
+  caso_id integer [ref: > casos.id]
+}
+
+Table sesiones {
+  token varchar [pk]
+  usuario_id integer [not null, ref: > usuarios.id]
+  expira datetime [not null]
+}
